@@ -61,15 +61,15 @@ public class DetailTvShowActivity extends AppCompatActivity {
             @Override
             public void onChanged(TvShow detailTv) {
                 if (detailTv != null) {
-                    tvTvTitle.setText(detailTv.getTvShowTitle());
-                    tvTvSynopsis.setText(detailTv.getTvShowSynopsis());
-                    tvTvReleaseDate.setText(detailTv.getTvShowReleaseDate());
+                    tvTvTitle.setText(detailTv.getName());
+                    tvTvSynopsis.setText(detailTv.getOverview());
+                    tvTvReleaseDate.setText(detailTv.getFirst_air_date());
 
                     score = (detailTv.getVoteavg()*10/20);
                     rate.setRating(score);
 
                     Glide.with(getApplicationContext())
-                            .load("https://image.tmdb.org/t/p/w500"+detailTv.getImgTvShowPoster())
+                            .load("https://image.tmdb.org/t/p/w500"+detailTv.getPoster_path())
                             .apply(new RequestOptions().placeholder(R.drawable.img_placeholder).error(R.drawable.img_placeholder))
                             .into(ivTvPoster);
                     Glide.with(getApplicationContext())

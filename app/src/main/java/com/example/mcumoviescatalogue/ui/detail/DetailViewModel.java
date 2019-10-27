@@ -70,11 +70,11 @@ public class DetailViewModel extends ViewModel {
                     detailResponse = new TvShow(
                             String.valueOf(responseObject.getInt("id")),
                             Float.valueOf(String.valueOf(responseObject.getDouble("vote_average"))),
-                            responseObject.getString("poster_path"),
-                            responseObject.getString("backdrop_path"),
                             responseObject.getString("original_name"),
-                            responseObject.getString("first_air_date"),
                             responseObject.getString("overview"),
+                            responseObject.getString("poster_path"),
+                            responseObject.getString("first_air_date"),
+                            responseObject.getString("backdrop_path"),
                             responseObject.getString("original_language"));
 
                     detailTv.postValue(detailResponse);
