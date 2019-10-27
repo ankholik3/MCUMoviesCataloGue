@@ -50,12 +50,12 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ListViewHo
     public void onBindViewHolder(@NonNull ListViewHolder holder, final int position) {
         final TvShow tvShow = tvShows.get(position);
         Log.d("TVShow","data "+tvShow.toString());
-        Glide.with(holder.itemView.getContext())
-                .load(tvShow.getImgTvShowPoster())
-                .apply(new RequestOptions())
+        Glide.with(context)
+                .load("https://image.tmdb.org/t/p/w185"+tvShow.getPoster_path())
+                .placeholder(R.drawable.no_image)
                 .into(holder.imgTvPoster);
-        holder.txtTvTitle.setText(tvShow.getTvShowTitle());
-        holder.txtTvDescription.setText(tvShow.getTvShowDescription());
+        holder.txtTvTitle.setText(tvShow.getName());
+        holder.txtTvDescription.setText(tvShow.getOverview());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,51 +65,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ListViewHo
         });
     }
 
-   /* @Override
-    public long getItemId(int i) {
-        return i;
-    }
 
-    @Override
-    public int getItemCount() {
-        return 0;
-    }*/
-/*
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.item_tv_show, viewGroup, false);
-        }
-        ViewHolder viewHolder = new ViewHolder(view);
-        TvShow tvShow = (TvShow) getItem(i);
-        viewHolder.bind(tvShow);
-        return view;
-    }
-
-    private class ViewHolder {
-        private TextView txtMovieTitleTvShow;
-        private TextView txtDescriptionTvShow;
-        private ImageView imgPosterTvShow;
-        private TextView txtReleaseDateTvShow;
-        private TextView txtSynopsisTvShow;
-
-        ViewHolder(View view) {
-            txtMovieTitleTvShow = view.findViewById(R.id.txt_title_tv_show);
-            txtDescriptionTvShow = view.findViewById(R.id.txt_description_tv_show);
-            imgPosterTvShow = view.findViewById(R.id.img_poster_tv_show);
-            //txtReleaseDateTvShow = view.findViewById(R.id.txt_release_date);
-            //txtSynopsisTvShow = view.findViewById(R.id.txt_synopsis);
-        }
-
-        public void bind(TvShow tvShow) {
-            txtMovieTitleTvShow.setText(tvShow.getTvShowTitle());
-            txtDescriptionTvShow.setText(tvShow.getTvShowDescription());
-            imgPosterTvShow.setImageResource(tvShow.getImgTvShowPoster());
-           //txtReleaseDate.setText(movie.getReleaseDate());
-            //txtSynopsis.setText(movie.getSynopsis());
-        }
-    }
-*/
     public class ListViewHolder extends RecyclerView.ViewHolder {
         private TextView txtTvTitle;
         private TextView txtTvDescription;
@@ -130,4 +86,6 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ListViewHo
     public interface OnItemClickCallback {
         void onItemClicked(TvShow data);
     }
+
+
 }

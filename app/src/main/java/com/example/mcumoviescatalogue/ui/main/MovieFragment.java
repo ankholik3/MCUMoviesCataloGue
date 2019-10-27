@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 public class MovieFragment extends Fragment{
 
     private MovieAdapter adapter;
-
+    private ProgressBar progressBar;
     private MoviesViewModel moviesViewModel;
 
     @Nullable
@@ -37,7 +38,7 @@ public class MovieFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         adapter = new MovieAdapter(getActivity());
         RecyclerView recyclerView = view.findViewById(R.id.lv_list1);
-
+        progressBar = view.findViewById(R.id.progressBar);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
@@ -59,12 +60,13 @@ public class MovieFragment extends Fragment{
                     Log.d("get data", movie.toString());
                     adapter.setMovies(movie);
                     adapter.notifyDataSetChanged();
+                    showLoading(false);
                 }
             }
         });
 
         moviesViewModel.setListMovieItems();
-
+        showLoading(true);
 
 
         return view;
@@ -78,5 +80,13 @@ public class MovieFragment extends Fragment{
         detailMovieIntent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movie);
         startActivity(detailMovieIntent);
 
+    }
+
+    private void showLoading(Boolean state) {
+        if (state) {
+            progressBar.setVisibility(View.VISIBLE);
+        } else {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 }
