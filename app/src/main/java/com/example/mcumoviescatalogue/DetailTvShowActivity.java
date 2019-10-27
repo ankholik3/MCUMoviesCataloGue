@@ -35,11 +35,11 @@ public class DetailTvShowActivity extends AppCompatActivity {
         ivTvPoster = findViewById(R.id.img_tv_poster_detail);
 
         TvShow tvShow = getIntent().getParcelableExtra(EXTRA_TV_SHOW);
-        tvTvTitle.setText(tvShow.getTvShowTitle());
-        tvTvDescription.setText(tvShow.getTvShowDescription());
-        tvTvSynopsis.setText(tvShow.getTvShowSynopsis());
-        tvTvReleaseDate.setText(tvShow.getTvShowReleaseDate());
-        ivTvPoster.setImageResource(tvShow.getImgTvShowPoster());
+        tvTvTitle.setText(tvShow.getName());
+        tvTvDescription.setText(tvShow.getOverview());
+        tvTvSynopsis.setText(tvShow.getOverview());
+        tvTvReleaseDate.setText(tvShow.getFirst_air_date());
+        //ivTvPoster.setImageResource(tvShow.getImgTvShowPoster());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

@@ -46,6 +46,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ListViewHold
         final Movie movi = movies.get(position);
         Glide.with(context)
                 .load("https://image.tmdb.org/t/p/w185"+movi.getPoster_path())
+                .placeholder(R.drawable.no_image)
                 .into(holder.imgPoster);
         holder.txtMovieTitle.setText(movi.getName());
         holder.txtDescription.setText(movi.getDescriptionFromAPI());
