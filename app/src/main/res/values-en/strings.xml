@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MCUMoviesCataloGue</string>
+    <string name="description">Description</string>
+    <string name="tab_text_1">Movies</string>
+    <string name="tab_text_2">Tv Series</string>
+    <string name="title_activity_tab_menu">MCU Catalog</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="release_date">Release Date</string>
+    <string name="movie_title">Title</string>
+    <string name="detail_movie">Movie Detail</string>
+    <string name="detail_tv_show">Detail Tv Show</string>
+    <string name="change_language_settings">Language Setting</string>
+</resources>
