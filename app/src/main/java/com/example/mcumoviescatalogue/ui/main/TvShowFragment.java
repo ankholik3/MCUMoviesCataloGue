@@ -18,8 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mcumoviescatalogue.DetailMovieActivity;
-import com.example.mcumoviescatalogue.DetailTvShowActivity;
+import com.example.mcumoviescatalogue.ui.detail.DetailTvShowActivity;
 import com.example.mcumoviescatalogue.Movie;
 import com.example.mcumoviescatalogue.MovieAdapter;
 import com.example.mcumoviescatalogue.MoviesViewModel;

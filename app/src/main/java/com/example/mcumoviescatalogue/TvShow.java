@@ -4,17 +4,25 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class TvShow implements Parcelable {
-/*    private int imgTvShowPoster;
-    private String tvShowTitle;
-    private String tvShowReleaseDate;
-    private String tvShowDescription;
-    private String tvShowSynopsis;*/
-
     private String id;
+    private float voteavg;
     private String name;
     private String overview;
     private String poster_path;
     private String first_air_date;
+    private String imgTvShowBanner;
+    private String language;
+
+    public TvShow(String id, float voteavg, String name, String overview, String poster_path, String first_air_date, String imgTvShowBanner, String language) {
+        this.id = id;
+        this.voteavg = voteavg;
+        this.name = name;
+        this.overview = overview;
+        this.poster_path = poster_path;
+        this.first_air_date = first_air_date;
+        this.imgTvShowBanner = imgTvShowBanner;
+        this.language = language;
+    }
 
     public String getId() {
         return id;
@@ -22,6 +30,14 @@ public class TvShow implements Parcelable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public float getVoteavg() {
+        return voteavg;
+    }
+
+    public void setVoteavg(float voteavg) {
+        this.voteavg = voteavg;
     }
 
     public String getName() {
@@ -56,67 +72,21 @@ public class TvShow implements Parcelable {
         this.first_air_date = first_air_date;
     }
 
-    /*public int getImgTvShowPoster() {
-        return imgTvShowPoster;
+    public String getImgTvShowBanner() {
+        return imgTvShowBanner;
     }
 
-    public void setImgTvShowPoster(int imgTvShowPoster) {
-        this.imgTvShowPoster = imgTvShowPoster;
+    public void setImgTvShowBanner(String imgTvShowBanner) {
+        this.imgTvShowBanner = imgTvShowBanner;
     }
 
-    public String getTvShowTitle() {
-        return tvShowTitle;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setTvShowTitle(String tvShowTitle) {
-        this.tvShowTitle = tvShowTitle;
+    public void setLanguage(String language) {
+        this.language = language;
     }
-
-    public String getTvShowReleaseDate() {
-        return tvShowReleaseDate;
-    }
-
-    public void setTvShowReleaseDate(String tvShowReleaseDate) {
-        this.tvShowReleaseDate = tvShowReleaseDate;
-    }
-
-    public String getTvShowDescription() {
-        return tvShowDescription;
-    }
-
-    public void setTvShowDescription(String tvShowDescription) {
-        this.tvShowDescription = tvShowDescription;
-    }
-
-    public String getTvShowSynopsis() {
-        return tvShowSynopsis;
-    }
-
-    public void setTvShowSynopsis(String tvShowSynopsis) {
-        this.tvShowSynopsis = tvShowSynopsis;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(imgTvShowPoster);
-        parcel.writeString(tvShowTitle);
-        parcel.writeString(tvShowDescription);
-        parcel.writeString(tvShowSynopsis);
-        parcel.writeString(tvShowReleaseDate);
-    }
-
-    protected TvShow(Parcel in) {
-        imgTvShowPoster = in.readInt();
-        tvShowTitle = in.readString();
-        tvShowDescription = in.readString();
-        tvShowSynopsis = in.readString();
-        tvShowReleaseDate = in.readString();
-    }*/
 
     @Override
     public int describeContents() {

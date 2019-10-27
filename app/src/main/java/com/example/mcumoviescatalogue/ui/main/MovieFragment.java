@@ -1,7 +1,6 @@
 package com.example.mcumoviescatalogue.ui.main;
 
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mcumoviescatalogue.DetailMovieActivity;
+import com.example.mcumoviescatalogue.ui.detail.DetailMovieActivity;
 import com.example.mcumoviescatalogue.Movie;
 import com.example.mcumoviescatalogue.MovieAdapter;
 import com.example.mcumoviescatalogue.MoviesViewModel;
