@@ -31,14 +31,14 @@ public class DetailMovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_movie);
         tvMovieTitle = findViewById(R.id.txt_movie_title_detail);
-        tvDescription = findViewById(R.id.txt_description_detail);
+        //tvDescription = findViewById(R.id.txt_description_detail);
         tvReleaseDate = findViewById(R.id.txt_release_date_detail);
         tvSynopsis = findViewById(R.id.txt_synopsis_detail);
         ivPoster = findViewById(R.id.img_poster_detail);
 
         Movie movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
         tvMovieTitle.setText(movie.getMovieTitle());
-        tvDescription.setText(movie.getDescription());
+        //tvDescription.setText(movie.getDescription());
         tvSynopsis.setText(movie.getSynopsis());
         tvReleaseDate.setText(movie.getReleaseDate());
         ivPoster.setImageResource(movie.getImgPoster());
