@@ -44,12 +44,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ListViewHold
     @Override
     public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
         final Movie movi = movies.get(position);
-        Glide.with(holder.itemView.getContext())
-                .load(movi.getImgPoster())
-                .apply(new RequestOptions())
+        Glide.with(context)
+                .load("https://image.tmdb.org/t/p/w185"+movi.getPoster_path())
                 .into(holder.imgPoster);
-        holder.txtMovieTitle.setText(movi.getMovieTitle());
-        holder.txtDescription.setText(movi.getDescription());
+        holder.txtMovieTitle.setText(movi.getName());
+        holder.txtDescription.setText(movi.getDescriptionFromAPI());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

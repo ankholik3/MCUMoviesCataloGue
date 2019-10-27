@@ -37,11 +37,11 @@ public class DetailMovieActivity extends AppCompatActivity {
         ivPoster = findViewById(R.id.img_poster_detail);
 
         Movie movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
-        tvMovieTitle.setText(movie.getMovieTitle());
-        //tvDescription.setText(movie.getDescription());
-        tvSynopsis.setText(movie.getSynopsis());
-        tvReleaseDate.setText(movie.getReleaseDate());
-        ivPoster.setImageResource(movie.getImgPoster());
+        tvMovieTitle.setText(movie.getName());
+        //tvDescription.setText(movie.getDescriptionFromAPI());
+        tvSynopsis.setText(movie.getDescriptionFromAPI());
+        tvReleaseDate.setText(movie.getRelease_date());
+        //ivPoster.setImageResource(movie.getPoster_path());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
