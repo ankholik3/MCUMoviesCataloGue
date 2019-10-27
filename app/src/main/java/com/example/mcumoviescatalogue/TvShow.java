@@ -4,18 +4,64 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class TvShow implements Parcelable {
-    private int imgTvShowPoster;
+    private String id;
+    private float voteavg;
+    private String imgTvShowPoster;
+    private String imgTvShowBanner;
     private String tvShowTitle;
     private String tvShowReleaseDate;
     private String tvShowDescription;
     private String tvShowSynopsis;
+    private String language;
 
+    public TvShow(String id, float voteavg, String imgTvShowPoster, String imgTvShowBanner, String tvShowTitle, String tvShowReleaseDate, String tvShowSynopsis, String language) {
+        this.id = id;
+        this.voteavg = voteavg;
+        this.imgTvShowPoster = imgTvShowPoster;
+        this.imgTvShowBanner = imgTvShowBanner;
+        this.tvShowTitle = tvShowTitle;
+        this.tvShowReleaseDate = tvShowReleaseDate;
+        this.tvShowSynopsis = tvShowSynopsis;
+        this.language = language;
+    }
 
-    public int getImgTvShowPoster() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public float getVoteavg() {
+        return voteavg;
+    }
+
+    public void setVoteavg(float voteavg) {
+        this.voteavg = voteavg;
+    }
+
+    public String getImgTvShowBanner() {
+        return imgTvShowBanner;
+    }
+
+    public void setImgTvShowBanner(String imgTvShowBanner) {
+        this.imgTvShowBanner = imgTvShowBanner;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getImgTvShowPoster() {
         return imgTvShowPoster;
     }
 
-    public void setImgTvShowPoster(int imgTvShowPoster) {
+    public void setImgTvShowPoster(String imgTvShowPoster) {
         this.imgTvShowPoster = imgTvShowPoster;
     }
 
@@ -58,7 +104,7 @@ public class TvShow implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(imgTvShowPoster);
+        parcel.writeString(imgTvShowPoster);
         parcel.writeString(tvShowTitle);
         parcel.writeString(tvShowDescription);
         parcel.writeString(tvShowSynopsis);
@@ -66,7 +112,7 @@ public class TvShow implements Parcelable {
     }
 
     protected TvShow(Parcel in) {
-        imgTvShowPoster = in.readInt();
+        imgTvShowPoster = in.readString();
         tvShowTitle = in.readString();
         tvShowDescription = in.readString();
         tvShowSynopsis = in.readString();

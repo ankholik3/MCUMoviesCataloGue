@@ -7,18 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mcumoviescatalogue.DetailMovieActivity;
-import com.example.mcumoviescatalogue.DetailTvShowActivity;
-import com.example.mcumoviescatalogue.Movie;
-import com.example.mcumoviescatalogue.MovieAdapter;
+import com.example.mcumoviescatalogue.ui.detail.DetailTvShowActivity;
 import com.example.mcumoviescatalogue.R;
 import com.example.mcumoviescatalogue.TvShow;
 import com.example.mcumoviescatalogue.TvShowAdapter;

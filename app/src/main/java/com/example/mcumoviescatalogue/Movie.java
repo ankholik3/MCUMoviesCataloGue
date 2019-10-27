@@ -11,10 +11,24 @@ public class Movie implements Parcelable {
     //private String synopsis;
     //FromAPI
     private String id;
+    private float voteavg;
     private String name;
     private String descriptionFromAPI;
     private String poster_path;
+    private String banner_path;
     private String release_date;
+    private String language;
+
+    public Movie(String id, float voteavg, String name, String descriptionFromAPI, String poster_path, String banner_path, String release_date, String language) {
+        this.id = id;
+        this.voteavg = voteavg;
+        this.name = name;
+        this.descriptionFromAPI = descriptionFromAPI;
+        this.poster_path = poster_path;
+        this.banner_path = banner_path;
+        this.release_date = release_date;
+        this.language = language;
+    }
 
     public String getId() {
         return id;
@@ -56,7 +70,31 @@ public class Movie implements Parcelable {
         this.release_date = release_date;
     }
 
-  /*  public int getImgPoster() {
+    public float getVoteavg() {
+        return voteavg;
+    }
+
+    public void setVoteavg(float voteavg) {
+        this.voteavg = voteavg;
+    }
+
+    public String getBanner_path() {
+        return banner_path;
+    }
+
+    public void setBanner_path(String banner_path) {
+        this.banner_path = banner_path;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    /*  public int getImgPoster() {
         return imgPoster;
     }
 
