@@ -23,24 +23,27 @@ public class MoviesViewModel extends ViewModel {
         return listMovieItems;
     }
 
-    public void setListMovieItems(final String movies ) {
+    public void setListMovieItems( ) {
         AsyncHttpClient client = new AsyncHttpClient();
         final ArrayList<Movie> listItems = new ArrayList<>();
-        String url = "https://api.themoviedb.org/3/discover/movie?api_key={THEMOVIEDB_API_KEY}&language=en-US";
+        String url = "https://api.themoviedb.org/3/discover/movie?api_key="+API_KEY+"&language=en-US";
 
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
                 try {
                     String result = new String(responseBody);
+                    Log.d("result", result+" "+ headers.toString());
                     JSONObject responseObject = new JSONObject(result);
-                    JSONArray list = responseObject.getJSONArray("list");
+                    JSONArray list = responseObject.getJSONArray("results");
                     for (int i = 0; i < list.length(); i++) {
                         JSONObject movie = list.getJSONObject(i);
                         Movie movieItems = new Movie();
-                        movieItems.setId(movie.getInt("id"));
-                        movieItems.setName(movie.getString("name"));
-                        movieItems.setDescriptionFromAPI(movie.getJSONArray("weather").getJSONObject(0).getString("description"));
+                        movieItems.setId(movie.getString("id"));
+                        movieItems.setName(movie.getString("title"));
+                        movieItems.setDescriptionFromAPI(movie.getString("overview"));
+                        movieItems.setRelease_date(movie.getString("release_date"));
+                        movieItems.setPoster_path(movie.getString("poster_path"));
                         listItems.add(movieItems);
                     }
                     listMovieItems.postValue(listItems);

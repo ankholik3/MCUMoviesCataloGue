@@ -4,22 +4,23 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Movie implements Parcelable {
-    private int imgPoster;
-    private String movieTitle;
-    private String releaseDate;
-    private String description;
-    private String synopsis;
+    //private int imgPoster;
+    //private String movieTitle;
+    //private String releaseDate;
+    //private String description;
+    //private String synopsis;
     //FromAPI
-    private int id;
+    private String id;
     private String name;
     private String descriptionFromAPI;
     private String poster_path;
+    private String release_date;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -47,7 +48,15 @@ public class Movie implements Parcelable {
         this.poster_path = poster_path;
     }
 
-    public int getImgPoster() {
+    public String getRelease_date() {
+        return release_date;
+    }
+
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
+    }
+
+  /*  public int getImgPoster() {
         return imgPoster;
     }
 
@@ -90,9 +99,9 @@ public class Movie implements Parcelable {
     @Override
     public int describeContents() {
         return 0;
-    }
+    }*/
 
-    @Override
+/*    @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(imgPoster);
         parcel.writeString(movieTitle);
@@ -107,7 +116,30 @@ public class Movie implements Parcelable {
         description = in.readString();
         synopsis = in.readString();
         releaseDate = in.readString();
+    }*/
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(name);
+        parcel.writeString(descriptionFromAPI);
+        parcel.writeString(poster_path);
+        parcel.writeString(release_date);
+    }
+
+    protected Movie(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        descriptionFromAPI = in.readString();
+        poster_path = in.readString();
+        release_date = in.readString();
+    }
+
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
         @Override
