@@ -1,4 +1,4 @@
-package com.example.mcumoviescatalogue;
+package com.example.mcumoviescatalogue.ui;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,7 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
+import com.example.mcumoviescatalogue.R;
+import com.example.mcumoviescatalogue.model.TvShow;
 
 import java.util.ArrayList;
 

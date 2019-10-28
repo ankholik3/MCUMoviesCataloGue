@@ -1,4 +1,4 @@
-package com.example.mcumoviescatalogue;
+package com.example.mcumoviescatalogue.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
