@@ -11,4 +11,5 @@
     <string name="title_activity_tab_menu">Katalog MCU</string>
     <string name="detail_tv_show">Detail Acara Tv</string>
     <string name="change_language_settings">pengaturan bahasa</string>
+    <string name="favorite">Favorit</string>
 </resources>

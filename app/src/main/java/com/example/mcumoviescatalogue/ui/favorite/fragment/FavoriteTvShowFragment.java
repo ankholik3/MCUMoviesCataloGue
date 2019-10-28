@@ -1,4 +1,4 @@
-package com.example.mcumoviescatalogue.ui.main;
+package com.example.mcumoviescatalogue.ui.favorite.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -15,21 +14,16 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mcumoviescatalogue.ui.detail.DetailTvShowActivity;
 import com.example.mcumoviescatalogue.R;
 import com.example.mcumoviescatalogue.model.TvShow;
 import com.example.mcumoviescatalogue.ui.TvShowAdapter;
 import com.example.mcumoviescatalogue.ui.TvViewModel;
+import com.example.mcumoviescatalogue.ui.detail.DetailTvShowActivity;
 
 import java.util.ArrayList;
 
-/**
- * A placeholder fragment containing a simple view.
- */
-public class TvShowFragment extends Fragment{
+public class FavoriteTvShowFragment extends Fragment {
     private TvShowAdapter adapter;
-    private TvViewModel tvShowsViewModel;
-    private ProgressBar progressBar;
 
     @Nullable
     @Override
@@ -39,9 +33,6 @@ public class TvShowFragment extends Fragment{
         RecyclerView recyclerView = view.findViewById(R.id.lv_list2);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-        progressBar = view.findViewById(R.id.progressBar);
-
-        tvShowsViewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(TvViewModel.class);
 
         adapter.setOnItemClickCallback(new TvShowAdapter.OnItemClickCallback() {
             @Override
@@ -49,22 +40,6 @@ public class TvShowFragment extends Fragment{
                 showSelectedTvShow(tvShows);
             }
         });
-
-        tvShowsViewModel.getListTvItems().observe(this, new Observer<ArrayList<TvShow>>() {
-
-            @Override
-            public void onChanged(ArrayList<TvShow> tvShow) {
-                if (tvShow != null) {
-                    Log.d("get data", tvShow.toString());
-                    adapter.setTvShows(tvShow);
-                    adapter.notifyDataSetChanged();
-                    showLoading(false);
-                }
-            }
-        });
-
-        tvShowsViewModel.setListTvItems();
-        showLoading(true);
 
         return view;
     }
@@ -76,11 +51,4 @@ public class TvShowFragment extends Fragment{
         startActivity(detailTvShowIntent);
     }
 
-    private void showLoading(Boolean state) {
-        if (state) {
-            progressBar.setVisibility(View.VISIBLE);
-        } else {
-            progressBar.setVisibility(View.GONE);
-        }
-    }
 }

@@ -1,10 +1,11 @@
-package com.example.mcumoviescatalogue;
+package com.example.mcumoviescatalogue.ui;
 
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mcumoviescatalogue.model.TvShow;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 

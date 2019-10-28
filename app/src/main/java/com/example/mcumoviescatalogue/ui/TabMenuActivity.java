@@ -1,8 +1,10 @@
-package com.example.mcumoviescatalogue;
+package com.example.mcumoviescatalogue.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.mcumoviescatalogue.R;
+import com.example.mcumoviescatalogue.ui.favorite.TabMenuFavorite;
 import com.example.mcumoviescatalogue.ui.main.MovieFragment;
 import com.example.mcumoviescatalogue.ui.main.TvShowFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -58,10 +60,14 @@ public class TabMenuActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_change_settings) {
             Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+            startActivity(mIntent);
+        }else if (item.getItemId() == R.id.action_favorite) {
+            Intent mIntent = new Intent(this, TabMenuFavorite.class);
             startActivity(mIntent);
         }
         return super.onOptionsItemSelected(item);

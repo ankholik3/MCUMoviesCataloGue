@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.mcumoviescatalogue.Movie;
-import com.example.mcumoviescatalogue.TvShow;
+import com.example.mcumoviescatalogue.model.Movie;
+import com.example.mcumoviescatalogue.model.TvShow;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 

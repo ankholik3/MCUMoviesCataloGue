@@ -1,10 +1,11 @@
-package com.example.mcumoviescatalogue;
+package com.example.mcumoviescatalogue.ui;
 
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mcumoviescatalogue.model.Movie;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -12,8 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import cz.msebera.android.httpclient.entity.mime.Header;
 
 public class MoviesViewModel extends ViewModel {
     private static final String API_KEY = "f8febe57cc9ed470b0ee502bfb4fdcc8";

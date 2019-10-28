@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -16,9 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mcumoviescatalogue.ui.detail.DetailMovieActivity;
-import com.example.mcumoviescatalogue.Movie;
-import com.example.mcumoviescatalogue.MovieAdapter;
-import com.example.mcumoviescatalogue.MoviesViewModel;
+import com.example.mcumoviescatalogue.model.Movie;
+import com.example.mcumoviescatalogue.ui.MovieAdapter;
+import com.example.mcumoviescatalogue.ui.MoviesViewModel;
 import com.example.mcumoviescatalogue.R;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class MovieFragment extends Fragment{
     private MovieAdapter adapter;
     private ProgressBar progressBar;
     private MoviesViewModel moviesViewModel;
+
 
     @Nullable
     @Override
@@ -52,6 +54,8 @@ public class MovieFragment extends Fragment{
             }
         });
 
+
+
         moviesViewModel.getListMovieItems().observe(this, new Observer<ArrayList<Movie>>() {
 
             @Override
@@ -70,6 +74,13 @@ public class MovieFragment extends Fragment{
 
 
         return view;
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 
 

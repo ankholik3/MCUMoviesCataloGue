@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.mcumoviescatalogue.R;
-import com.example.mcumoviescatalogue.TvShow;
+import com.example.mcumoviescatalogue.model.TvShow;
 
 public class DetailTvShowActivity extends AppCompatActivity {
     public static final String EXTRA_TV_SHOW = "extra_tv_show";

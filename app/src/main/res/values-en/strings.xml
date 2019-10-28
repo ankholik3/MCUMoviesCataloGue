@@ -11,4 +11,5 @@
     <string name="detail_movie">Movie Detail</string>
     <string name="detail_tv_show">Detail Tv Show</string>
     <string name="change_language_settings">Language Setting</string>
+    <string name="favorite">Favorite</string>
 </resources>
