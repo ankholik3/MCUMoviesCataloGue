@@ -10,4 +10,8 @@
         android:id="@+id/action_change_settings"
         android:title="@string/change_language_settings"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_notif_setting"
+        android:title="@string/change_notif"
+        app:showAsAction="never"/>
 </menu>

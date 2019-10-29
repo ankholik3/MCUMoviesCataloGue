@@ -189,7 +189,12 @@
     <string name="tab_text_2">Acara Tv</string>
     <string name="detail_tv_show">Detail Tv Show</string>
     <string name="change_language_settings">pengaturan bahasa</string>
+    <string name="change_notif">Notification Setting</string>
     <string name="favorite">Favorite</string>
+    <string name="is_daily">Daily Notification</string>
+    <string name="key_daily">daily</string>
+    <string name="is_release">Release Today</string>
+    <string name="key_release">release</string>
     <string-array name="data_movie_title">
         <item>Captain America: Civil War</item>
         <item>Doctor Strange</item>
