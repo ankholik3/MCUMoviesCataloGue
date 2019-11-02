@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mcumoviescatalogue">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,17 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.detail.DetailMovieActivity"/>
         <activity android:name=".ui.detail.DetailTvShowActivity"/>
+        <activity
+            android:name=".ui.reminder.SettingActivity"
+            android:label="@string/change_notif" />
+        <receiver
+            android:name=".ui.reminder.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import com.example.mcumoviescatalogue.R;
 import com.example.mcumoviescatalogue.ui.favorite.TabMenuFavorite;
 import com.example.mcumoviescatalogue.ui.main.MovieFragment;
 import com.example.mcumoviescatalogue.ui.main.TvShowFragment;
+import com.example.mcumoviescatalogue.ui.reminder.SettingActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -70,6 +71,11 @@ public class TabMenuActivity extends AppCompatActivity {
             Intent mIntent = new Intent(this, TabMenuFavorite.class);
             startActivity(mIntent);
         }
+        else if (item.getItemId() == R.id.action_notif_setting) {
+            Intent sIntent = new Intent(this, SettingActivity.class);
+            startActivity(sIntent);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
