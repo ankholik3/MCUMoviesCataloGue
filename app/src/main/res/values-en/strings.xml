@@ -6,10 +6,11 @@
     <string name="tab_text_2">Tv Series</string>
     <string name="title_activity_tab_menu">MCU Catalog</string>
     <string name="synopsis">Synopsis</string>
-    <string name="release_date">Release Date</string>
     <string name="movie_title">Title</string>
-    <string name="detail_movie">Movie Detail</string>
-    <string name="detail_tv_show">Detail Tv Show</string>
     <string name="change_language_settings">Language Setting</string>
     <string name="favorite">Favorite</string>
+    <string name="tab_fav_1">Favorite Film</string>
+    <string name="tab_fav_2">Favorite Tv Shows</string>
+    <string name="loading">Loading . . .</string>
+    <string name="search">search</string>
 </resources>

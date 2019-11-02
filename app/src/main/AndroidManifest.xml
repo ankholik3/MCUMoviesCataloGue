@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mcumoviescatalogue">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -22,10 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.favorite.TabMenuFavorite"
+        <activity
+            android:name=".ui.favorite.TabMenuFavorite"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.detail.DetailMovieActivity"/>
-        <activity android:name=".ui.detail.DetailTvShowActivity"/>
+        <activity android:name=".ui.detail.DetailMovieActivity" />
+        <activity android:name=".ui.detail.DetailTvShowActivity" />
     </application>
 
 </manifest>

@@ -3,24 +3,19 @@ package com.example.mcumoviescatalogue.ui.favorite.fragment;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mcumoviescatalogue.R;
 import com.example.mcumoviescatalogue.database.MovieHelper;
 import com.example.mcumoviescatalogue.model.Movie;
 import com.example.mcumoviescatalogue.ui.MovieAdapter;
-import com.example.mcumoviescatalogue.ui.MoviesViewModel;
-import com.example.mcumoviescatalogue.R;
 import com.example.mcumoviescatalogue.ui.detail.DetailMovieActivity;
 
 import java.util.ArrayList;
@@ -53,8 +48,6 @@ public class FavoriteMovieFragment extends Fragment {
         movieHelper.open();
 
 
-        Cursor dataCursor = movieHelper.queryByCategory("movie");
-        adapter.setMovies(mapCursorToArrayList(dataCursor));
         adapter.setOnItemClickCallback(new MovieAdapter.OnItemClickCallback() {
             @Override
             public void onItemClicked(Movie movies) {
@@ -66,7 +59,13 @@ public class FavoriteMovieFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Cursor dataCursor = movieHelper.queryByCategory("movie");
+        adapter.setMovies(mapCursorToArrayList(dataCursor));
 
+    }
 
     private void showSelectedMovie(Movie movie) {
 

@@ -2,25 +2,20 @@ package com.example.mcumoviescatalogue.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.mcumoviescatalogue.R;
 import com.example.mcumoviescatalogue.ui.favorite.TabMenuFavorite;
 import com.example.mcumoviescatalogue.ui.main.MovieFragment;
-import com.example.mcumoviescatalogue.ui.main.TvShowFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.provider.Settings;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
 import com.example.mcumoviescatalogue.ui.main.SectionsPagerAdapter;
+import com.example.mcumoviescatalogue.ui.main.TvShowFragment;
+import com.google.android.material.tabs.TabLayout;
 
 public class TabMenuActivity extends AppCompatActivity {
 
@@ -55,21 +50,7 @@ public class TabMenuActivity extends AppCompatActivity {
         viewPager.setAdapter(mainFragmentPagerAdapter);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_change_settings) {
-            Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-            startActivity(mIntent);
-        }else if (item.getItemId() == R.id.action_favorite) {
-            Intent mIntent = new Intent(this, TabMenuFavorite.class);
-            startActivity(mIntent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
+
 }

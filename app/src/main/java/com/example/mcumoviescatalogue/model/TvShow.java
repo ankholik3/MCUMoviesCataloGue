@@ -122,7 +122,7 @@ public class TvShow implements Parcelable {
         }
     };
 
-    public TvShow(){
+    public TvShow() {
 
     }
 

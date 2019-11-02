@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.mcumoviescatalogue.model.Movie;
 import com.example.mcumoviescatalogue.R;
+import com.example.mcumoviescatalogue.model.Movie;
 
 import java.util.ArrayList;
 
@@ -27,6 +27,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ListViewHold
 
     public void setMovies(ArrayList<Movie> movies) {
         this.movies = movies;
+        notifyDataSetChanged();
     }
 
     public MovieAdapter(Context context) {
@@ -45,7 +46,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ListViewHold
     public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
         final Movie movi = movies.get(position);
         Glide.with(context)
-                .load("https://image.tmdb.org/t/p/w185"+movi.getPoster_path())
+                .load("https://image.tmdb.org/t/p/w185" + movi.getPoster_path())
                 .placeholder(R.drawable.no_image)
                 .into(holder.imgPoster);
         holder.txtMovieTitle.setText(movi.getName());
@@ -69,6 +70,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ListViewHold
     public int getItemCount() {
         return movies.size();
     }
+
     /*
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {

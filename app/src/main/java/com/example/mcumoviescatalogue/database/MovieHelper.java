@@ -58,7 +58,7 @@ public class MovieHelper {
                 null,
                 null,
                 null,
-                 ID + " ASC");
+                ID + " ASC");
     }
 
     /**

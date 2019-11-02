@@ -4,12 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Movie implements Parcelable {
-    //private int imgPoster;
-    //private String movieTitle;
-    //private String releaseDate;
-    //private String description;
-    //private String synopsis;
-    //FromAPI
     private String id;
     private float voteavg;
     private String name;
@@ -94,68 +88,6 @@ public class Movie implements Parcelable {
         this.language = language;
     }
 
-    /*  public int getImgPoster() {
-        return imgPoster;
-    }
-
-    public void setImgPoster(int imgPoster) {
-        this.imgPoster = imgPoster;
-    }
-
-    public String getMovieTitle() {
-        return movieTitle;
-    }
-
-    public void setMovieTitle(String movieTitle) {
-        this.movieTitle = movieTitle;
-    }
-
-    public String getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getSynopsis() {
-        return synopsis;
-    }
-
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }*/
-
-/*    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(imgPoster);
-        parcel.writeString(movieTitle);
-        parcel.writeString(description);
-        parcel.writeString(synopsis);
-        parcel.writeString(releaseDate);
-    }
-
-    protected Movie(Parcel in) {
-        imgPoster = in.readInt();
-        movieTitle = in.readString();
-        description = in.readString();
-        synopsis = in.readString();
-        releaseDate = in.readString();
-    }*/
-
     @Override
     public int describeContents() {
         return 0;
@@ -191,7 +123,7 @@ public class Movie implements Parcelable {
         }
     };
 
-    public Movie(){
+    public Movie() {
 
     }
 

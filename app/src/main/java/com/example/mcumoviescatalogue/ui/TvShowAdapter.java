@@ -28,18 +28,20 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ListViewHo
 
     public void setTvShows(ArrayList<TvShow> tvShows) {
         this.tvShows = tvShows;
+        notifyDataSetChanged();
     }
 
     public TvShowAdapter(Context context) {
         this.context = context;
         tvShows = new ArrayList<>();
     }
+
     @Override
-    public int getItemCount () {
+    public int getItemCount() {
         return tvShows.size();
     }
 
-    
+
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
@@ -50,9 +52,9 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ListViewHo
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, final int position) {
         final TvShow tvShow = tvShows.get(position);
-        Log.d("TVShow","data "+tvShow.toString());
+        Log.d("TVShow", "data " + tvShow.toString());
         Glide.with(context)
-                .load("https://image.tmdb.org/t/p/w185"+tvShow.getPoster_path())
+                .load("https://image.tmdb.org/t/p/w185" + tvShow.getPoster_path())
                 .placeholder(R.drawable.no_image)
                 .into(holder.imgTvPoster);
         holder.txtTvTitle.setText(tvShow.getName());

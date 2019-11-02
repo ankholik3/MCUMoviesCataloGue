@@ -1,8 +1,5 @@
 apply plugin: 'com.android.application'
 
-// Define Variable API Key
-def STRING = 'String'
-def THEMOVIEDB_API_KEY = '"' + TheMovieDBApi + '"' ?: '"Define your The Movie DB API Key!"'
 
 android {
     compileSdkVersion 29
@@ -14,9 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        each { type ->
-            type.buildConfigField STRING, 'TheMovieDBApi', THEMOVIEDB_API_KEY
-        }
+        buildConfigField("String" , "API_KEY" , '"f8febe57cc9ed470b0ee502bfb4fdcc8"')
     }
     buildTypes {
         release {

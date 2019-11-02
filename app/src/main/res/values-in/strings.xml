@@ -2,14 +2,15 @@
 <resources>
     <string name="app_name">MCUMoviesCataloGue</string>
     <string name="description">Deskripsi</string>
-    <string name="detail_movie">Detail Film</string>
     <string name="movie_title">Judul</string>
-    <string name="release_date">Tanggal Rilis</string>
     <string name="synopsis">Sinopsis</string>
     <string name="tab_text_1">Film</string>
     <string name="tab_text_2">Acara Tv</string>
     <string name="title_activity_tab_menu">Katalog MCU</string>
-    <string name="detail_tv_show">Detail Acara Tv</string>
     <string name="change_language_settings">pengaturan bahasa</string>
     <string name="favorite">Favorit</string>
+    <string name="tab_fav_1">Film Favorit</string>
+    <string name="tab_fav_2">Acara Tv Favorit</string>
+    <string name="loading">Memuat . . .</string>
+    <string name="search">cari</string>
 </resources>

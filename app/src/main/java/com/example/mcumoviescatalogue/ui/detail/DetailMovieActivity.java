@@ -1,32 +1,28 @@
 package com.example.mcumoviescatalogue.ui.detail;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.app.ProgressDialog;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import com.example.mcumoviescatalogue.database.DatabaseContract.*;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.mcumoviescatalogue.R;
 import com.example.mcumoviescatalogue.database.MovieHelper;
 import com.example.mcumoviescatalogue.model.Movie;
-import com.example.mcumoviescatalogue.R;
-import com.example.mcumoviescatalogue.ui.favorite.TabMenuFavorite;
 
 import static com.example.mcumoviescatalogue.database.DatabaseContract.MovieColumns.BANNERPATH;
 import static com.example.mcumoviescatalogue.database.DatabaseContract.MovieColumns.CATEGORY;
@@ -40,14 +36,14 @@ import static com.example.mcumoviescatalogue.database.DatabaseContract.MovieColu
 
 public class DetailMovieActivity extends AppCompatActivity {
     public static final String EXTRA_MOVIE = "extra_movie";
-    Float score;
-    RatingBar rate;
-    TextView tvMovieTitle;
-    TextView tvDescription;
-    TextView tvSynopsis;
-    ImageView ivPoster;
-    ImageView ivBanner;
-    TextView tvReleaseDate;
+    private Float score;
+    private RatingBar rate;
+    private TextView tvMovieTitle;
+    private TextView tvDescription;
+    private TextView tvSynopsis;
+    private ImageView ivPoster;
+    private ImageView ivBanner;
+    private TextView tvReleaseDate;
     private DetailViewModel viewModel;
     ProgressDialog loadingDialog;
     private MovieHelper movieHelper;
@@ -61,14 +57,13 @@ public class DetailMovieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_movie);
         tvMovieTitle = findViewById(R.id.txt_movie_title_detail);
         rate = findViewById(R.id.rb_score);
-        //tvDescription = findViewById(R.id.txt_description_detail);
         tvReleaseDate = findViewById(R.id.txt_release_date_detail);
         tvSynopsis = findViewById(R.id.txt_synopsis_detail);
         ivPoster = findViewById(R.id.img_poster_detail);
         ivBanner = findViewById(R.id.vv_trailer);
 
         loadingDialog = new ProgressDialog(DetailMovieActivity.this);
-        loadingDialog.setMessage("Loading...");
+        loadingDialog.setMessage(getResources().getString(R.string.loading));
         loadingDialog.show();
 
         movieHelper = MovieHelper.getInstance(getApplicationContext());
@@ -84,39 +79,40 @@ public class DetailMovieActivity extends AppCompatActivity {
             public void onChanged(Movie detailMovie) {
                 if (detailMovie != null) {
                     tvMovieTitle.setText(detailMovie.getName());
-                    //tvDescription.setText(movie.getDescriptionFromAPI());
                     tvSynopsis.setText(detailMovie.getDescriptionFromAPI());
                     tvReleaseDate.setText(detailMovie.getRelease_date());
 
-                    score = (detailMovie.getVoteavg()*10/20);
+                    score = (detailMovie.getVoteavg() * 10 / 20);
                     rate.setRating(score);
 
                     Glide.with(getApplicationContext())
-                            .load("https://image.tmdb.org/t/p/w500"+detailMovie.getPoster_path())
+                            .load("https://image.tmdb.org/t/p/w500" + detailMovie.getPoster_path())
                             .apply(new RequestOptions().placeholder(R.drawable.img_placeholder).error(R.drawable.img_placeholder))
                             .into(ivPoster);
                     Glide.with(getApplicationContext())
-                            .load("https://image.tmdb.org/t/p/w500"+detailMovie.getBanner_path())
+                            .load("https://image.tmdb.org/t/p/w500" + detailMovie.getBanner_path())
                             .apply(new RequestOptions().placeholder(R.drawable.img_placeholder).error(R.drawable.img_placeholder))
                             .into(ivBanner);
                     loadingDialog.dismiss();
                 }
             }
         });
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        star = menu.getItem(0).getIcon();
+        menu.getItem(0).setVisible(false);
+        menu.getItem(2).setVisible(false);
+        star = menu.getItem(1).getIcon();
         star.mutate();
 
 
         Cursor dataCursor = movieHelper.queryById(movieData.getId());
-        if(dataCursor.getCount()>0){
+        if (dataCursor.getCount() > 0) {
             star.setColorFilter(getResources().getColor(R.color.colorAccent), PorterDuff.Mode.SRC_IN);
         } else {
             star.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
@@ -128,12 +124,12 @@ public class DetailMovieActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
         } else if (item.getItemId() == R.id.action_favorite) {
             Cursor dataCursor = movieHelper.queryById(movieData.getId());
-            Log.d("DetailMovieActivity",dataCursor.toString());
-            if(dataCursor.getCount()==0){
+            Log.d("DetailMovieActivity", dataCursor.toString());
+            if (dataCursor.getCount() == 0) {
                 insertFavorite();
             } else {
                 deleteFavorite();
@@ -143,7 +139,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void insertFavorite(){
+    private void insertFavorite() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(ID, movieData.getId());
         contentValues.put(TITLE, movieData.getName());
@@ -159,7 +155,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         star.setColorFilter(getResources().getColor(R.color.colorAccent), PorterDuff.Mode.SRC_IN);
     }
 
-    private void deleteFavorite(){
+    private void deleteFavorite() {
         movieHelper.deleteById(movieData.getId());
         star.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
     }

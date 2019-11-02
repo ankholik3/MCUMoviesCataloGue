@@ -1,14 +1,8 @@
 package com.example.mcumoviescatalogue.ui.main;
 
-import android.content.Context;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-
-import com.example.mcumoviescatalogue.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +25,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return mFragments.get(position);
     }
 
-    public void addFragment(Fragment fragment, String title){
+    public void addFragment(Fragment fragment, String title) {
         mFragments.add(fragment);
         mTitleFragments.add(title);
     }
